@@ -8,10 +8,12 @@ import {
   Input,
   OnChanges,
   Output,
+  PLATFORM_ID,
   SimpleChanges,
   ViewChild,
+  inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { TimelineModel, WorkCenterDocument, WorkOrderDocument } from '../../models/models';
 import { WorkOrderBarComponent } from '../work-order-bar/work-order-bar.component';
 import {
@@ -161,6 +163,7 @@ export class TimelineGridComponent implements AfterViewInit, OnChanges {
   @Output() moveOrder = new EventEmitter<WorkOrderDocument>();
 
   @ViewChild('scrollEl') scrollEl!: ElementRef<HTMLDivElement>;
+  #platformId = inject(PLATFORM_ID);
 
   hoverWorkCenterId: string | null = null;
   activeTooltipWcId: string | null = null;
@@ -281,7 +284,9 @@ export class TimelineGridComponent implements AfterViewInit, OnChanges {
   }
 
   scrollToToday(): void {
-    const el = this.scrollEl.nativeElement;
+    if (!isPlatformBrowser(this.#platformId)) return;
+    const el = this.scrollEl?.nativeElement;
+    if (!el || typeof el.scrollTo !== 'function') return;
     const target = this.todayX - el.clientWidth / 2;
     el.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
   }

@@ -93,10 +93,13 @@ export class TimelinePageComponent {
 
   /** @upgrade Consider preserving scroll position when timescale changes. */
   constructor() {
-    effect(() => {
-      this.timescale();
-      this.range.set(getInitialRange(this.timescale(), new Date()));
-    });
+    effect(
+      () => {
+        this.timescale();
+        this.range.set(getInitialRange(this.timescale(), new Date()));
+      },
+      { allowSignalWrites: true }
+    );
   }
 
   panelOpen = signal(false);
