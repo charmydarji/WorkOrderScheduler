@@ -36,6 +36,22 @@ export function fromIsoDate(iso: string): Date {
   return new Date(y, m - 1, d);
 }
 
+import type { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
+export function isoToNgbDate(iso: string): NgbDateStruct | null {
+  if (!iso || iso.length < 10) return null;
+  const [y, m, d] = iso.split('-').map(Number);
+  if (isNaN(y) || isNaN(m) || isNaN(d)) return null;
+  return { year: y, month: m, day: d };
+}
+
+export function ngbDateToIso(ngb: NgbDateStruct | null): string {
+  if (!ngb) return '';
+  const mm = String(ngb.month).padStart(2, '0');
+  const dd = String(ngb.day).padStart(2, '0');
+  return `${ngb.year}-${mm}-${dd}`;
+}
+
 export function formatMonthLabel(d: Date): string {
   return d.toLocaleString('en-US', { month: 'short', year: 'numeric' });
 }
@@ -52,21 +68,14 @@ export function formatWeekLabel(startDate: Date, endDate: Date): string {
 
 export function formatHourLabel(d: Date, showDateAtMidnight = false): string {
   const h = d.getHours();
-
   let time: string;
-
   if (h === 0) time = '12 AM';
   else if (h < 12) time = `${h} AM`;
   else if (h === 12) time = '12 PM';
   else time = `${h - 12} PM`;
-
   if (showDateAtMidnight && h === 0) {
-    const datePart = d.toLocaleString('en-US', {
-      month: 'short',
-      day: 'numeric',
-    });
+    const datePart = d.toLocaleString('en-US', { month: 'short', day: 'numeric' });
     return `${datePart} ${time}`;
   }
-
   return time;
 }
