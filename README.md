@@ -115,7 +115,14 @@ npx cypress run
 ## Demo Video
 
 [Loom Demo Video]
-[Watch the demo on Loom](https://www.loom.com/share/ffa1a4488073484aaa792dffb96f8ca5)
+
+https://www.loom.com/share/ffa1a4488073484aaa792dffb96f8ca5
+
+---
+
+## Demo Link
+
+https://work-order-scheduler-gamma.vercel.app/
 
 ---
 
