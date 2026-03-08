@@ -42,7 +42,7 @@ app-root {
   .bar-tooltip-overlay {
     position: fixed;
     transform: translate(-50%, -100%);
-    z-index: 99;
+    z-index: 2147483647;
     pointer-events: none;
     background: #1e1e2e;
     color: #fff;
@@ -424,6 +424,7 @@ app-timeline-grid {
   .rightHeader {
     position: sticky;
     top: 0;
+    z-index: 2;
   }
 
   .headerRow {
@@ -433,6 +434,7 @@ app-timeline-grid {
 
   .monthRow {
     position: relative;
+    z-index: 3;
     background: transparent;
     border-bottom: 1px solid $border-color;
   }
@@ -464,7 +466,7 @@ app-timeline-grid {
 
     &.isHover {
       position: relative;
-      z-index: 19;
+      z-index: 10;
       background-color: #e0e7ff;
 
       .track { background-color: #e0e7ff; }

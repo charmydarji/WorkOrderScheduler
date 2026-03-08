@@ -8,6 +8,7 @@ export function addDays(d: Date, days: number): Date {
   return x;
 }
 
+
 export function addHours(d: Date, hours: number): Date {
   const x = new Date(d);
   x.setHours(x.getHours() + hours);
