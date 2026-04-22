@@ -1,4 +1,4 @@
-# Work Order Schedule Timeline - Frontend Technical Test
+# Work Order Schedule Timeline
 
 **Repository:** [github.com/charmydarji/WorkOrderScheduler](https://github.com/charmydarji/WorkOrderScheduler)
 
