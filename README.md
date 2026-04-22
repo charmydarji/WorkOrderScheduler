@@ -151,18 +151,3 @@ Trade-offs and future improvements are documented in code comments with `@upgrad
 - **Advanced accessibility**
 
 ---
-
-## Submission Checklist
-
-- [x] Working Angular app (`ng serve`)
-- [x] Pixel-perfect design (matches Sketch)
-- [x] Sample data (5+ centers, 8+ orders)
-- [x] Automated tests (unit + E2E)
-- [x] README with setup, approach, and demo video
-- [x] Loom video
-- [x] Clean commit history
-- [x] AI prompt documentation (bonus)
-
----
-
-**Thank you for reviewing my solution!**
