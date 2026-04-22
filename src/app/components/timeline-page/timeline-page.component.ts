@@ -28,10 +28,6 @@ import { v4 as uuidv4 } from 'uuid';
   template: `
     <div class="page">
       <header class="main-header">
-        <div class="brand">
-          <img src="assets/naologic-logo.png" alt="Naologic" class="brand-logo" />
-        </div>
-
         <div class="header-content">
           <h1 class="title">Work Orders</h1>
 
